@@ -10,7 +10,10 @@ dependencies:
   override:
     - npm update
   post:
+    - npm install -g grunt-cli jasmine-node && npm install --save-dev frisby
     - ./node_modules/.bin/webdriver-manager update
+    - npm install:
+        pwd: protractor
     - wget http://selenium-release.storage.googleapis.com/3.0-beta4/selenium-server-standalone-3.0.0-beta4.jar -P ./node_modules/webdriver-manager/selenium
     - ./node_modules/.bin/webdriver-manager start --versions.standalone 3.0.0-beta4:
         background: true
